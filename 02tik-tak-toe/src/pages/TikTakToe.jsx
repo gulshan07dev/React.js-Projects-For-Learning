@@ -52,7 +52,12 @@ export default function TikTakToe() {
     }
   };
 
-  
+  //   function for handle reset game
+  const handleReset = () => {
+    setTurn(true);
+    setWinner(null);
+    setBoard(Array.from({ length: 9 }).fill(""));
+  };
 
   let player = turn ? "X" : "O";
 
@@ -75,24 +80,36 @@ export default function TikTakToe() {
           <div className="flex flex-col gap-5 bg-none">
             <h2 className="text-2xl p-5 custom-shadow text-green-600 font-semibold font-sans">
               {winner === "Draw" ? "It's a Draw!" : `Player ${winner} Wins!`}{" "}
-              <span>🎉</span>
+              {winner !== "Draw" && <span>🎉</span>}
             </h2>
-            <img
-              src={winnerSvg}
-              alt="winner"
-              className="w-[30%] self-center "
-            />
+            {winner === "Draw" ? (
+              <span className="text-7xl self-center mt-4 animate-ping">😎</span>
+            ) : (
+              <img
+                src={winnerSvg}
+                alt="winner"
+                className="w-[30%] self-center "
+              />
+            )}
           </div>
         )}
       </div>
       {/* main game */}
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-8">
         <div className="grid grid-cols-3 grid-rows-3 gap-0 h-fit md:w-fit max-w-[600px]">
           {board.map((el, idx) => (
             <Card player={el} onPlay={handleCardClick} index={idx} key={idx} />
           ))}
         </div>
-        
+        {/* show restart button if winner */}
+        {winner && (
+          <button
+            className="p-4 bg-[#ff2c2c] rounded-md text-base font-semibold hover:opacity-70 text-white animate-bounce"
+            onClick={handleReset}
+          >
+            Restart
+          </button>
+        )}
       </div>
     </main>
   );
