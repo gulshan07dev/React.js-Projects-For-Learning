@@ -6,9 +6,9 @@ export default function TodoAdd() {
   const { addTodo } = useTodoContext();
 
   const handleAddTodo = () => {
-    if (value.trim() !== "") {
+    if (value.trim() !== "") { 
       addTodo(value);
-      setValue("");   
+      setValue("");
     }
   };
 
