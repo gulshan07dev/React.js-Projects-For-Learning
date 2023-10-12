@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    todos: [{ id: 1, todo: "learn react", isComplete: false }]
+    todos: localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []
 }
 
 const todoSlice = createSlice({
@@ -21,4 +21,4 @@ const todoSlice = createSlice({
 })
 
 export default todoSlice.reducer
-export const {addTodo, removeTodo, updateTodo} = todoSlice.actions
+export const { addTodo, removeTodo, updateTodo } = todoSlice.actions

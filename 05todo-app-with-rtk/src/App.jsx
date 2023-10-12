@@ -1,11 +1,16 @@
-import React from "react";
-import {useSelector} from "react-redux"
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import AddTodo from "./components/AddTodo";
-import Todo from "./components/Todo"; 
-import {Toaster} from "react-hot-toast"
+import Todo from "./components/Todo";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const {todos} = useSelector((state) => state.todo);
+  const { todos } = useSelector((state) => state.todo);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <main className="bg-[#18181b] min-h-screen py-7 px-3">
       <section className="flex flex-col gap-10 items-center">
