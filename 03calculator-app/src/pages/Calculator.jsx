@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { FiArrowLeft } from "react-icons/fi";
-import Btn from "../component/btn";
+import React, { useState } from "react";
+import Btn from "../component/Btn";
 
 export default function Calculator() {
   const [value, setValue] = useState("0");
