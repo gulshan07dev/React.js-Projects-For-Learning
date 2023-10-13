@@ -1,5 +1,5 @@
 import React from "react"    
-import Calculator from "./pages/calculator"
+import Calculator from "./pages/Calculator"
 
 function App() {
  
