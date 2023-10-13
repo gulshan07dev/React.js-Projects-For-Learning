@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Icon from "../icon/icon";
+import Icon from "../icon/Icon";
 
 export default function Card({ player, onPlay, index }) {
   const [icon, setIcon] = useState("");
